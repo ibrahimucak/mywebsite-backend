@@ -1,0 +1,18 @@
+# IDE ve editör dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Bağımlılık dizinleri
+node_modules/
+vendor/
+
+# Derleme çıktıları
+dist/
+build/
+*.log 
