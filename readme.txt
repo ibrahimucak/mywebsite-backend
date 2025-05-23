@@ -1,7 +1,10 @@
 -----------------------
 # README
 -----------------------
-Browny is a one page bootstrap 3 based resume/portfolio template.
+İbrahim Uçak Resmi web sitesi kaynak kodlarıdır
+Bir one page sayfası olup Browny tarafından alınmıştır.
+
+https://ibrahimucak.com.tr/
 
 
 Template Info:
