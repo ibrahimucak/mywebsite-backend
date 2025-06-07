@@ -34,26 +34,26 @@ $(document).ready(function(){
 	
 	
 	
-	// 2. Smooth Scroll spy
+	// // 2. Smooth Scroll spy
 		
-		$('.header-area').sticky({
-           topSpacing:0
-        });
+	// 	$('.header-area').sticky({
+    //        topSpacing:0
+    //     });
 		
-		//=============
+	// 	//=============
 
-		$('li.smooth-menu a').bind("click", function(event) {
-			event.preventDefault();
-			var anchor = $(this);
-			$('html, body').stop().animate({
-				scrollTop: $(anchor.attr('href')).offset().top - 0
-			}, 1200,'easeInOutExpo');
-		});
+	// 	$('li.smooth-menu a').bind("click", function(event) {
+	// 		event.preventDefault();
+	// 		var anchor = $(this);
+	// 		$('html, body').stop().animate({
+	// 			scrollTop: $(anchor.attr('href')).offset().top - 0
+	// 		}, 1200,'easeInOutExpo');
+	// 	});
 		
-		$('body').scrollspy({
-			target:'.navbar-collapse',
-			offset:0
-		});
+	// 	$('body').scrollspy({
+	// 		target:'.navbar-collapse',
+	// 		offset:0
+	// 	});
 
 	// 3. Progress-bar
 	

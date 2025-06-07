@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli - İbrahim Uçak</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootsnav.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .admin-sidebar {
+            background-color: #2c3e50;
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .admin-content {
+            padding: 20px;
+        }
+
+        .admin-menu-item {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .admin-menu-item:hover {
+            background-color: #34495e;
+        }
+
+        .admin-menu-item i {
+            margin-right: 10px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        .stat-card p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 admin-sidebar">
+                <h3 class="text-center mb-4">Admin Paneli</h3>
+                <div class="admin-menu">
+                    <div class="admin-menu-item" data-section="dashboard">
+                        <i class="fa fa-dashboard"></i> Dashboard
+                    </div>
+                    <div class="admin-menu-item" data-section="profile">
+                        <i class="fa fa-user"></i> Profil Düzenle
+                    </div>
+                    <div class="admin-menu-item" data-section="education">
+                        <i class="fa fa-graduation-cap"></i> Eğitim Bilgileri
+                    </div>
+                    <div class="admin-menu-item" data-section="experience">
+                        <i class="fa fa-briefcase"></i> İş Deneyimi
+                    </div>
+                    <div class="admin-menu-item" data-section="skills">
+                        <i class="fa fa-star"></i> Yetenekler
+                    </div>
+                    <div class="admin-menu-item" data-section="portfolio">
+                        <i class="fa fa-folder"></i> Portfolyo
+                    </div>
+                    <div class="admin-menu-item" data-section="messages">
+                        <i class="fa fa-envelope"></i> Mesajlar
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col-md-9 admin-content">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="content-section active">
+                    <h2>Dashboard</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <h3 id="totalVisits">0</h3>
+                                <p>Toplam Ziyaret</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <h3 id="todayVisits">0</h3>
+                                <p>Bugünkü Ziyaret</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <h3 id="lastVisit">-</h3>
+                                <p>Son Ziyaret</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diğer bölümler buraya eklenecek -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Menü tıklama işlemleri
+            $('.admin-menu-item').click(function () {
+                const section = $(this).data('section');
+                $('.content-section').removeClass('active');
+                $('#' + section).addClass('active');
+            });
+
+            // Ziyaretçi sayısını güncelle
+            function updateVisitorStats() {
+                fetch('/api/visitor-stats')
+                    .then(response => response.json())
+                    .then(data => {
+                        $('#totalVisits').text(data.totalVisits);
+                        $('#todayVisits').text(data.todayVisits);
+                        $('#lastVisit').text(data.lastVisit);
+                    })
+                    .catch(error => console.error('Ziyaretçi istatistikleri alınamadı:', error));
+            }
+
+            // Sayfa yüklendiğinde ve her 30 saniyede bir güncelle
+            updateVisitorStats();
+            setInterval(updateVisitorStats, 30000);
+        });
+    </script>
+</body>
+
+</html>

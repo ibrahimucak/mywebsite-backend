@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" style="max-width:400px; margin-top:80px;">
+        <h2 class="text-center">Giriş Yap</h2>
+        <form action="giris.php" method="post">
+            <div class="form-group">
+                <label for="kullanici">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="kullanici" name="kullanici" required>
+            </div>
+            <div class="form-group">
+                <label for="sifre">Şifre</label>
+                <input type="password" class="form-control" id="sifre" name="sifre" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Giriş</button>
+        </form>
+        <a href="index.html" class="btn btn-link btn-block">Ana Sayfaya Dön</a>
+    </div>
+</body>
+
+</html>

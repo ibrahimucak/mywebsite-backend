@@ -1117,3 +1117,91 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .project-card .btn-primary:hover {
     background: #016666;
 }
+
+
+.references {
+    padding: 100px 0;
+    background: #f9f9f9;
+}
+
+.reference-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.reference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.reference-img {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reference-img img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #f1f1f1;
+}
+
+.reference-content {
+    text-align: center;
+}
+
+.reference-content h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.reference-content h4 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.reference-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.reference-linkedin {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #0077b5;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.reference-linkedin:hover {
+    background: #005582;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.reference-linkedin i {
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .reference-card {
+        margin-bottom: 20px;
+    }
+
+    .reference-img img {
+        width: 150px;
+        height: 150px;
+    }
+}
