@@ -60,14 +60,14 @@
 
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li class=" smooth-menu active"></li>
+							<li class="smooth-menu active"></li>
 							<li class="smooth-menu"><a href="#about">Profil</a></li>
-							<li class=" smooth-menu"><a href="#education">Eğitim</a></li>
+							<li class="smooth-menu"><a href="#education">Eğitim</a></li>
 							<li class="smooth-menu"><a href="#skills">Yeteneklerim</a></li>
 							<li class="smooth-menu"><a href="#experience">Tecrübe</a></li>
 							<li class="smooth-menu"><a href="#portfolio">Portfolyö</a></li>
-							<li class="smooth-menu"><a href="#contact">İletişim</a></li>
 							<li><a href="giris.html"><i class="fa fa-lock"></i> Giriş</a></li>
+							<li class="smooth-menu"><a href="#contact">İletişim</a></li>
 						</ul>
 					</div>
 				</div>
@@ -525,9 +525,7 @@
 			</div>
 		</div>
 	</section>
-	<!--referanslar end -->
-
-	<!--contact start -->
+	
 	<section id="contact" class="contact">
 		<div class="section-heading text-center">
 			<h2>İletişim</h2>
@@ -669,7 +667,7 @@
 
 	<script src="assets/js/custom.js"></script>
 
-	<!-- GitHub API için script -->
+	
 	<script>
 		async function getGitHubProjects() {
 			try {
@@ -704,9 +702,23 @@
 		document.addEventListener('DOMContentLoaded', getGitHubProjects);
 	</script>
 
-	<!-- Ziyaretçi Sayacı -->
-
-
+	
+	<script>
+		$(document).ready(function(){
+    
+    $('a.smooth-menu').on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function(){
+                window.location.hash = hash;
+            });
+        }
+    });
+});
+	</script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
 <body>
     <div class="container" style="max-width:400px; margin-top:80px;">
         <h2 class="text-center">Giriş Yap</h2>
-        <form action="giris.php" method="post">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="kullanici">Kullanıcı Adı</label>
                 <input type="text" class="form-control" id="kullanici" name="kullanici" required>
@@ -20,9 +20,33 @@
                 <input type="password" class="form-control" id="sifre" name="sifre" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Giriş</button>
+            <div id="loginError" class="text-danger mt-2" style="display:none;"></div>
         </form>
         <a href="index.html" class="btn btn-link btn-block">Ana Sayfaya Dön</a>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const kullanici = document.getElementById('kullanici').value;
+            const sifre = document.getElementById('sifre').value;
+
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ kullanici, sifre })
+            });
+
+            if (response.ok) {
+                window.location.href = 'admin.html';
+            } else {
+                const data = await response.json();
+                document.getElementById('loginError').textContent = data.message || 'Giriş başarısız!';
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 
 </html>

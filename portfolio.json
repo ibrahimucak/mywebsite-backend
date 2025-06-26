@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "baslik": "Web Sitesi Tasarımı",
+    "aciklama": "Modern ve mobil uyumlu web sitesi tasarımı.",
+    "resim": "assets/images/portfolio/p1.jpg"
+  },
+  {
+    "id": 2,
+    "baslik": "Logo Tasarımı",
+    "aciklama": "Kurumsal kimliğe uygun logo tasarımı.",
+    "resim": "assets/images/portfolio/p2.jpg"
+  }
+] 

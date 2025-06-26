@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "ad": "İbrahim Uçak",
+    "email": "ibrahimucak9@gmail.com"
+  },
+  "education": [
+    { "okul": " Celal Bayar Üniversitesi", "bolum": "Fizik", "yil": "2022- devam ediyor" }
+  ],
+  "experience": [
+    { "firma": "Celal Bayar Rektörlüğü", "pozisyon": "Web Tasarım birimi, Yarı-zamanlı çalışan", "yil": "2025 Mart-2025 Haziran" }
+  ],
+  "skills": ["Node.js", "React", "HTML", "CSS", "Java,SQL,Javascript"],
+  "portfolio": [
+    { "proje": "Kişisel Web", "link": "https://ibrahimucak.com" }
+  ],
+  "messages": [
+    { "ad": "Buraya datadan gelicek mesajlar", "mesaj": "ibooooo" }
+  ]
+}

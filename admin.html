@@ -67,68 +67,144 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 admin-sidebar">
-                <h3 class="text-center mb-4">Admin Paneli</h3>
-                <div class="admin-menu">
-                    <div class="admin-menu-item" data-section="dashboard">
-                        <i class="fa fa-dashboard"></i> Dashboard
+
+    <!-- Admin Paneli -->
+    <div class="row" id="admin-panel" style="display:none;">
+        <!-- Sidebar -->
+        <div class="col-md-3 admin-sidebar">
+            <h3 class="text-center mb-4">Admin Paneli</h3>
+            <button id="logoutBtn" class="btn btn-danger btn-block mb-3">Çıkış Yap</button>
+            <div class="admin-menu">
+                <div class="admin-menu-item" data-section="dashboard">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </div>
+                <div class="admin-menu-item" data-section="profile">
+                    <i class="fa fa-user"></i> Profil Düzenle
+                </div>
+                <div class="admin-menu-item" data-section="education">
+                    <i class="fa fa-graduation-cap"></i> Eğitim Bilgileri
+                </div>
+                <div class="admin-menu-item" data-section="experience">
+                    <i class="fa fa-briefcase"></i> İş Deneyimi
+                </div>
+                <div class="admin-menu-item" data-section="skills">
+                    <i class="fa fa-star"></i> Yetenekler
+                </div>
+                <div class="admin-menu-item" data-section="portfolio">
+                    <i class="fa fa-folder"></i> Portfolyo
+                </div>
+                <div class="admin-menu-item" data-section="messages">
+                    <i class="fa fa-envelope"></i> Mesajlar
+                </div>
+            </div>
+        </div>
+        <!-- Content Area -->
+        <div class="col-md-9 admin-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <h2>Dashboard</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h3 id="totalVisits">0</h3>
+                            <p>Toplam Ziyaret</p>
+                        </div>
                     </div>
-                    <div class="admin-menu-item" data-section="profile">
-                        <i class="fa fa-user"></i> Profil Düzenle
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h3 id="todayVisits">0</h3>
+                            <p>Bugünkü Ziyaret</p>
+                        </div>
                     </div>
-                    <div class="admin-menu-item" data-section="education">
-                        <i class="fa fa-graduation-cap"></i> Eğitim Bilgileri
-                    </div>
-                    <div class="admin-menu-item" data-section="experience">
-                        <i class="fa fa-briefcase"></i> İş Deneyimi
-                    </div>
-                    <div class="admin-menu-item" data-section="skills">
-                        <i class="fa fa-star"></i> Yetenekler
-                    </div>
-                    <div class="admin-menu-item" data-section="portfolio">
-                        <i class="fa fa-folder"></i> Portfolyo
-                    </div>
-                    <div class="admin-menu-item" data-section="messages">
-                        <i class="fa fa-envelope"></i> Mesajlar
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h3 id="lastVisit">-</h3>
+                            <p>Son Ziyaret</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Content Area -->
-            <div class="col-md-9 admin-content">
-                <!-- Dashboard Section -->
-                <div id="dashboard" class="content-section active">
-                    <h2>Dashboard</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <h3 id="totalVisits">0</h3>
-                                <p>Toplam Ziyaret</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <h3 id="todayVisits">0</h3>
-                                <p>Bugünkü Ziyaret</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <h3 id="lastVisit">-</h3>
-                                <p>Son Ziyaret</p>
-                            </div>
-                        </div>
+            <!-- Diğer bölümler buraya eklenecek -->
+            <div id="profile" class="content-section">
+                <h2>Profil Düzenle</h2>
+                <form id="profileForm">
+                    <div class="mb-3">
+                        <label for="ad" class="form-label">Ad</label>
+                        <input type="text" class="form-control" id="ad" required>
                     </div>
-                </div>
-
-                <!-- Diğer bölümler buraya eklenecek -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+            <div id="education" class="content-section">
+                <h2>Eğitim Bilgileri</h2>
+                <form id="educationForm">
+                    <div class="mb-3">
+                        <label for="okul" class="form-label">Okul</label>
+                        <input type="text" class="form-control" id="okul" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bolum" class="form-label">Bölüm</label>
+                        <input type="text" class="form-control" id="bolum" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="yil" class="form-label">Mezuniyet Yılı</label>
+                        <input type="text" class="form-control" id="yil" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+            <div id="experience" class="content-section">
+                <h2>İş Deneyimi</h2>
+                <form id="experienceForm">
+                    <div class="mb-3">
+                        <label for="firma" class="form-label">Firma</label>
+                        <input type="text" class="form-control" id="firma" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pozisyon" class="form-label">Pozisyon</label>
+                        <input type="text" class="form-control" id="pozisyon" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="yilDeneyim" class="form-label">Deneyim Yılı</label>
+                        <input type="text" class="form-control" id="yilDeneyim" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+            <div id="skills" class="content-section">
+                <h2>Yetenekler</h2>
+                <form id="skillsForm">
+                    <div class="mb-3">
+                        <label for="yetenek" class="form-label">Yetenek</label>
+                        <input type="text" class="form-control" id="yetenek" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+            <div id="portfolio" class="content-section">
+                <h2>Portfolyo</h2>
+                <form id="portfolioForm">
+                    <div class="mb-3">
+                        <label for="proje" class="form-label">Proje Adı</label>
+                        <input type="text" class="form-control" id="proje" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="link" class="form-label">Proje Linki</label>
+                        <input type="text" class="form-control" id="link" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+            <div id="messages" class="content-section">
+                <h2>Mesajlar</h2>
+                <div id="messagesList"></div>
             </div>
         </div>
     </div>
-
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script>
@@ -151,10 +227,32 @@
                     })
                     .catch(error => console.error('Ziyaretçi istatistikleri alınamadı:', error));
             }
-
-            // Sayfa yüklendiğinde ve her 30 saniyede bir güncelle
             updateVisitorStats();
             setInterval(updateVisitorStats, 30000);
+
+            // Çıkış butonuna tıklanınca
+            $('#logoutBtn').click(async function () {
+                await fetch('http://localhost:3000/api/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                window.location.href = 'index.html';
+            });
+
+            // Oturum kontrolü ve veri doldurma
+            (async function () {
+                const session = await fetch('http://localhost:3000/api/admin', { credentials: 'include' });
+                if (!session.ok) {
+                    window.location.href = 'giris.html';
+                    return;
+                }
+                const res = await fetch('http://localhost:3000/api/data', { credentials: 'include' });
+                const data = await res.json();
+                $('#ad').val(data.profile.ad);
+                $('#email').val(data.profile.email);
+                // Diğer alanlar için de benzer şekilde doldurabilirsin
+                $('#admin-panel').show();
+            })();
         });
     </script>
 </body>
